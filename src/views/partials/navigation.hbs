@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-blue bg-dark">
   <div class="container">
+    <div class="form-group">
+      <img src="/img/logo.jpg" alt="Logo App" class="mx-1 rounded-circle">
+    </div>
     <a class="navbar-brand" href="/">LinksApp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,6 +10,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
+        {{#if user}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -18,6 +22,20 @@
             <a class="dropdown-item" href="/links/add">Agregar link</a>
           </div>
         </li>
+        <li class="nav-item">
+          <a href="/profile" class="nav-link">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">Cerrar sesión</a>
+        </li>
+        {{else}}
+          <li class="nav-item">
+            <a href="/signin" class="nav-link">Ingreso</a>
+          </li>
+          <li class="nav-item">
+            <a href="/signup" class="nav-link">Registro</a>
+          </li>
+        {{/if}}
       </ul>
     </div>
   </div>
