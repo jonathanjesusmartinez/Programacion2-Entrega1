@@ -30,9 +30,13 @@ router.get('/profile', isLoggedIn, (req, res) => {
     res.render('profile');
 });
 
-router.get('/logout', isLoggedIn, (req, res) => {
+router.get('/inicio', isLoggedIn, (req, res) => {
+    res.render('inicio');
+});
+
+router.get('/cerrarSesion', isLoggedIn, (req, res) =>{
     req.logOut();
-    res.redirect('/signin');
+    res.redirect('/');
 });
 
 module.exports = router;

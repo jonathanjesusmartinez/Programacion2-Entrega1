@@ -27,7 +27,7 @@ app.set('view engine', '.hbs');
 
 //Middlewares
 app.use(session({
-    secret: 'applinkssession',
+    secret: 'apprecsession',
     resave: false,
     saveUninitialized: false,
     store: new mySqlStore(database)
@@ -50,7 +50,7 @@ app.use((req, res, next) => {
 //Rutas
 app.use(require('./routes/'));
 app.use(require('./routes/authentication'));
-app.use('/links', require('./routes/links'));
+app.use('/rec', require('./routes/rec'));
 
 //Público
 app.use(express.static(path.join(__dirname, 'public')));

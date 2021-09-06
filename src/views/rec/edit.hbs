@@ -1,0 +1,76 @@
+<div class="scroll"> 
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/rec/edit/{{recipiente.id}}" method="POST">
+                            <div class="form-group">
+                                <input type="text" value="{{recipiente.numero}}" class="form-control" name="numero" autofocus> 
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                                </div>
+                                <select name="tipo" class="custom-select" id="inputGroupSelect01">
+                                    <option >{{recipiente.tipo}}</option>
+                                    <option value="Tanque">Tanque</option>
+                                    <option value="Pileta">Pileta</option>
+                                    <option value="Barrica">Barrica</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" value="{{recipiente.capacidad}}" class="form-control" name="capacidad"> 
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Estado</label>
+                                </div>
+                                <select name="estado" class="custom-select" id="inputGroupSelect01">
+                                    <option >{{recipiente.estado}}</option>
+                                    <option value="Vacío">Vacío</option>
+                                    <option value="Lleno">Lleno</option>
+                                    <option value="Mermo">Mermo</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Contenido</label>
+                                </div>
+                                <select name="contenido" class="custom-select" id="inputGroupSelect01">
+                                    <option >{{recipiente.contenido}}</option>
+                                    <option value="">---</option>
+                                    <option value="Malbec">Malbec</option>
+                                    <option value="Syrah">Syrah</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Sector</label>
+                                </div>
+                                <select name="sector" class="custom-select" id="inputGroupSelect01">
+                                    <option >{{recipiente.sector}}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-success btn-block">
+                                    Guardar
+                                </button>
+                                <a href="/rec" class="btn btn-danger btn-block">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container-fluid"> 
+    <div id="scroll">
+        <table class="table table-hover">
+            <h3><p id="semiTransparente" class="text-center py-2">BOMBAS</p></h3>
+            <thead>
+                <tr>
+                    <th>Denominación</th>
+                    <th>Litros/hora</th>
+                    <th>Tipo</th>
+                    <th>Serie</th>
+                </tr> 
+            </thead>        
+             
+            <tbody>
+                {{#each bombas}}
+                <tr>
+                    <td>{{denominacion}}</td>
+                    <td>{{litros/hora}}</td>
+                    <td>{{tipo_bomba}}</td>
+                    <td>{{num_serie}}</td>
+                    <td>
+                        <a href="/bom/edit/{{id}}">Editar</a>
+                        <a class = "link link-danger" href="/bom/delete/{{id}}" onclick="return confirm('¿Estás seguro que deseas eliminar la bomba?');">Eliminar</a>
+                                                
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+        <div class="container">
+            <a href="/bom/agrBomba" class="btn btn-outline-info">Agregar Recipiente</a>
+        </div>
+
+               
+    </div>
+</div> 
+       

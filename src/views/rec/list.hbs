@@ -1,0 +1,43 @@
+<div class="container-fluid"> 
+    <div id="scroll">
+        <table class="table table-hover">
+            <h3><p id="semiTransparente" class="text-center py-2">RECIPIENTES</p></h3>
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>Tipo</th>
+                    <th>Capacidad</th>
+                    <th>Estado</th>
+                    <th>Contenido</th>
+                    <th>Sector</th>
+                    <th>Opciones</th>
+                </tr> 
+            </thead>        
+             
+            <tbody>
+                {{#each recipientes}}
+                <tr>
+                    <td>{{numero}}</td>
+                    <td>{{tipo}}</td>
+                    <td>{{capacidad}}</td>
+                    <td>{{estado}}</td>
+                    <td>{{contenido}}</td>
+                    <td>{{sector}}</td>
+                    <td>
+                        <a href="/rec/edit/{{id}}">Editar</a>
+                        <a class = "link link-danger" href="/rec/delete/{{id}}" onclick="return confirm('¿Estás seguro que deseas eliminar el recipiente?');">Eliminar</a>
+                                                
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+        <div class="container">
+            <a href="/rec/agrRecipiente" class="btn btn-outline-info">Agregar Recipiente</a>
+        </div>
+
+               
+    </div>
+</div> 
+       
