@@ -71,5 +71,77 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
 
 });
 
+router.get('/bomba', isLoggedIn, async (req, res) => {
+    const bombas = await pool.query('SELECT * FROM bomba ORDER BY denominacion');
+    res.render('rec/bomba', {bombas});
+});
 
+router.get('/agrBomba', isLoggedIn, (req, res) => {
+    res.render('rec/agrBomba');
+});
+
+router.post('/agrBomba', isLoggedIn, async (req, res) => {
+    const { num_serie, litrosHora, denominacion, tipo_bomba } = req.body;
+    const newBomba = {
+        num_serie,
+        litrosHora,
+        denominacion,
+        tipo_bomba
+
+    };
+    try {
+        if ((newBomba.num_serie.length) > 0) {
+            await pool.query('INSERT INTO bomba set ?', [newBomba]);
+            res.redirect('/rec/bomba');
+        }    
+    } catch (error) {
+        req.flash('message', 'Error al guardar bomba');
+        res.redirect('/rec/agrBomba');
+    }  
+    console.info(newBomba);
+});
+
+router.get('/editB/:id', isLoggedIn, async (req, res) => {
+    const { id } = req.params;
+    const bombas = await pool.query('SELECT * FROM bomba WHERE ID = ?', [id]);
+    res.render('rec/editB', {bomba: bombas[0]});
+});
+
+router.post('/editB/:id', isLoggedIn, async (req, res) => {
+    const { id } = req.params;
+    const { num_serie, litrosHora, denominacion, tipo_bomba } = req.body;
+    const newBomba = {
+        num_serie,
+        litrosHora,
+        denominacion,
+        tipo_bomba
+    };
+    try {
+        if ((newBomba.num_serie.length) > 0) {
+            await pool.query('UPDATE bomba set ? WHERE num_serie = ?', [newBomba, id]);
+            res.redirect('/rec/bomba');
+        }    
+    } catch (error) {
+        req.flash('message', 'Error al guardar bomba');
+        res.redirect('/rec/bomba');
+    }  
+    
+});
+
+router.get('/deleteB/:id', isLoggedIn, async (req, res) => {
+    const { id } = req.params;
+    await pool.query('DELETE FROM bomba WHERE ID = ?', [id]);
+    res.redirect('/rec/bomba');
+});
+
+router.get('/insumEnologico', isLoggedIn, async (req, res) => {
+    const insumos = await pool.query('SELECT * FROM bomba ORDER BY denominacion');
+    res.render('rec/insumEnologico', {insumos});
+});
+
+
+router.get('/personal', isLoggedIn, async (req, res) => {
+    const personas = await pool.query('SELECT * FROM bomba ORDER BY denominacion');
+    res.render('rec/personal', {personas});
+});
 module.exports = router;

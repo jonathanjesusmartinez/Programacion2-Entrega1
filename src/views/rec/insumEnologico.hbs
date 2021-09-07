@@ -1,0 +1,39 @@
+<div class="container-fluid"> 
+    <div id="scroll">
+        <table class="table table-hover">
+            <h3><p id="semiTransparente" class="text-center py-2">INSUMOS ENOLÓGICOS</p></h3>
+            <thead>
+                <tr>
+                    <th>Denominación</th>
+                    <th>Litros/hora</th>
+                    <th>Tipo</th>
+                    <th>Serie</th>
+                    <th>Opciones</th>
+                </tr> 
+            </thead>        
+             
+            <tbody>
+                {{#each insumos}}
+                <tr>
+                    <td>{{denominacion}}</td>
+                    <td>{{litrosHora}}</td>
+                    <td>{{tipo_bomba}}</td>
+                    <td>{{num_serie}}</td>
+                    <td>
+                        <a href="/editB/{{id}}">Editar</a>
+                        <a class = "link link-danger" href="/deleteB/{{id}}" onclick="return confirm('¿Estás seguro que deseas eliminar la bomba?');">Eliminar</a>
+                                                
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+        <div class="container">
+            <a href="agrInsum" class="btn btn-outline-info">Agregar Insumo</a>
+        </div>
+
+               
+    </div>
+</div> 
+       
